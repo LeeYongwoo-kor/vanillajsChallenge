@@ -1,0 +1,12 @@
+body {
+  font-family: sans-serif;
+  background-color: #914ead;
+}
+
+.color-half {
+  background-color: #2e8cd5 !important;
+}
+
+.color-full {
+  background-color: #eebc12 !important;
+}
