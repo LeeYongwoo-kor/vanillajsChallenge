@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>homework-day6-javaScript</title>
+    <title>homework-day7-javaScript</title>
     <meta charset="UTF-8" />
   </head>
   <body>
-    <h1>Where are you from?</h1>
-    <select class="country">
-      <option value="0">--- Choose Your Country ---</option>
-      <option value="KR">Korea</option>
-      <option value="GR">Greece</option>
-      <option value="TR">Turkey</option>
-      <option value="FI">Finland</option>
-    </select>
+    <form class="js-tasksForm">
+      <h1>Tasks</h1>
+      <input type="text" placeholder="Add task" />
+    </form>
+    <div class="js-list">
+      <h2>Pending</h2>
+      <ul class="js-pendingList"></ul>
+      <h2>Finished</h2>
+      <ul class="js-finishedList"></ul>
+    </div>
     <script src="./index.js"></script>
   </body>
 </html>

@@ -15,7 +15,7 @@ function deleteTodo(event) {
   const li = btn.parentNode;
   toDoList.removeChild(li);
   const cleanToDos = toDos.filter(function (toDo) {
-    return toDo.id !== pasreInt(li.id);
+    return toDo.id !== parseInt(li.id);
   });
   toDos = cleanToDos;
 }
