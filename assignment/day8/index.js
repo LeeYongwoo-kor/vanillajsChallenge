@@ -12,9 +12,9 @@ function isNumeric(inputText) {
 }
 
 function genericRandomNum(inputNumber, rangeMaxNumber) {
-  const randomNumber = Math.floor(Math.random() * rangeMaxNumber + 1);
-  if (inputNumber === randomNumber) {
-    genericRandomNum();
+  let randomNumber = Math.floor(Math.random() * rangeMaxNumber + 1);
+  if (parseInt(inputNumber, 10) === randomNumber) {
+    randomNumber = genericRandomNum(inputNumber, rangeMaxNumber);
   }
   return randomNumber;
 }
@@ -37,6 +37,9 @@ function handleFormSubmit(e) {
   e.preventDefault();
   const rangeMaxNumber = rangeNumber.value;
   let inputNumber = txtGuessNumber.value;
+  if (!inputNumber) {
+    return;
+  }
   if (!isNumeric(inputNumber) || inputNumber > rangeMaxNumber) {
     txtGuessNumber.value = "";
     return;
