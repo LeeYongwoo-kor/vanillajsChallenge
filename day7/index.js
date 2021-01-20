@@ -1,4 +1,6 @@
 // import "./styles.css";
+"use strict";
+
 const tasksForm = document.querySelector(".js-tasksForm"),
   addTaskInput = tasksForm.querySelector("input"),
   allListId = document.querySelectorAll(".js-list ul li");
@@ -159,31 +161,24 @@ function paintList(listName, id, text) {
 }
 
 /**
- * localStorage 필터하기
- *
- * @param  {} localStorage
- */
-function filterList(localStorage) {
-  for (let i = 0; i < localStorage.length; i++) {
-    const localStorageName = localStorage.key(i);
-    const parsedList = JSON.parse(localStorage.getItem(localStorageName));
-    if (localStorageName === PENDING_LS) {
-      parsedList.forEach((list) => paintList(PENDING_LIST, list.id, list.text));
-    } else if (localStorageName === FINISHED_LS) {
-      parsedList.forEach((list) =>
-        paintList(FINISHED_LIST, list.id, list.text)
-      );
-    }
-  }
-}
-
-/**
  * 리스트 불러오기
  */
 function loadList() {
-  const localStorage = this.localStorage;
-  if (localStorage !== null) {
-    filterList(localStorage);
+  const loadedPendingList = localStorage.getItem(PENDING_LS);
+  const loadedFinishedList = localStorage.getItem(FINISHED_LS);
+  if (loadedPendingList !== null) {
+    // localStorage.key에 PENDING이 존재하는 경우
+    const parsedPendingList = JSON.parse(loadedPendingList);
+    parsedPendingList.forEach((list) =>
+      paintList(PENDING_LIST, list.id, list.text)
+    );
+  }
+  if (loadedFinishedList !== null) {
+    // localStorage.key에 FINISHED가 존재하는 경우
+    const parsedFinishedList = JSON.parse(loadedFinishedList);
+    parsedFinishedList.forEach((list) =>
+      paintList(FINISHED_LIST, list.id, list.text)
+    );
   }
 }
 

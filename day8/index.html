@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>homework-day8-javaScript</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <form class="js-form">
+      <h1>Random Number Game</h1>
+      <h2>Generate a number between 0 and <span id="maxNumber" /></h2>
+      <input
+        id="rangeNumber"
+        type="range"
+        min="0"
+        max="200"
+        step="5"
+        value="50"
+      />
+      <div>
+        <h4>
+          Guess the number:
+          <input id="txtGuessNumber" type="text" maxlength="3" />
+          <button>Play!</button>
+        </h4>
+        <div class="js-form-submit"></div>
+      </div>
+    </form>
+    <script src="./index.js"></script>
+  </body>
+</html>
